@@ -15,6 +15,7 @@ export default function UploadForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
@@ -45,12 +46,55 @@ export default function UploadForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    // Simulate API call
-    setTimeout(() => {
+    if (!file) {
+      setError('Please select a file');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Create FormData to send file and form fields
+      const formDataToSend = new FormData();
+
+      // Add the file
+      formDataToSend.append('file', file);
+
+      // Add form fields
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('sendReport', formData.sendReport.toString());
+
+      // Add metadata
+      formDataToSend.append('fileName', file.name);
+      formDataToSend.append('fileSize', file.size.toString());
+      formDataToSend.append('fileType', file.type);
+      formDataToSend.append('timestamp', new Date().toISOString());
+
+      // Send to n8n webhook
+      const response = await fetch('https://n8n.aaagency.at/webhook-test/25ea5e3f-346d-44ab-8e24-e6e114c40eae', {
+        method: 'POST',
+        body: formDataToSend,
+        // Don't set Content-Type header - browser will set it automatically with boundary
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log('Webhook response:', result);
+
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 2000);
+
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError(err instanceof Error ? err.message : 'Failed to submit. Please try again.');
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -229,6 +273,18 @@ export default function UploadForm() {
                 </span>
               </label>
             </div>
+
+            {/* Error Message */}
+            {error && (
+              <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded">
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                  <p className="text-red-700 dark:text-red-300 font-semibold">{error}</p>
+                </div>
+              </div>
+            )}
 
             {/* Submit Button */}
             <button

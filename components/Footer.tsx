@@ -4,6 +4,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -94,16 +95,16 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">{t('company')}</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-primary-400 transition-colors">{t('about')}</a>
+                <Link href={`/${locale}/about`} className="hover:text-primary-400 transition-colors">{t('about')}</Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-400 transition-colors">{t('contact')}</a>
+                <Link href={`/${locale}/contact`} className="hover:text-primary-400 transition-colors">{t('contact')}</Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-400 transition-colors">{t('privacy')}</a>
+                <Link href={`/${locale}/privacy`} className="hover:text-primary-400 transition-colors">{t('privacy')}</Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-400 transition-colors">{t('terms')}</a>
+                <Link href={`/${locale}/terms`} className="hover:text-primary-400 transition-colors">{t('terms')}</Link>
               </li>
             </ul>
           </div>
@@ -113,13 +114,13 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">{t('support')}</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-primary-400 transition-colors">{t('faq')}</a>
+                <Link href={`/${locale}/faq`} className="hover:text-primary-400 transition-colors">{t('faq')}</Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-400 transition-colors">{t('help')}</a>
+                <Link href={`/${locale}/help`} className="hover:text-primary-400 transition-colors">{t('help')}</Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-400 transition-colors">{t('contact')}</a>
+                <Link href={`/${locale}/contact`} className="hover:text-primary-400 transition-colors">{t('contact')}</Link>
               </li>
             </ul>
           </div>

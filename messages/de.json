@@ -7,9 +7,13 @@
   },
   "hero": {
     "title": "Wie Viel Zahlen Sie für Energie?",
-    "subtitle": "Lassen Sie uns prüfen — Sie werden schockiert sein! Die meisten Österreicher zahlen 20-40% zu viel pro Monat, ohne es zu wissen. Laden Sie Ihre Rechnung hoch und erfahren Sie die Wahrheit.",
+    "subtitle": "Lassen Sie uns prüfen — Sie werden schockiert sein! Die meisten Österreicher zahlen 120-140% zu viel pro Monat, ohne es zu wissen. Laden Sie Ihre Rechnung hoch und erfahren Sie die Wahrheit.",
     "uploadBill": "Meine Rechnung Prüfen",
-    "howItWorks": "Wie Es Funktioniert"
+    "howItWorks": "Wie Es Funktioniert",
+    "freeBadge": "100% KOSTENLOS!",
+    "transparent": "100% Transparent",
+    "noFees": "Keine Versteckten Gebühren",
+    "freeAnalysis": "Kostenlose Analyse"
   },
   "benefits": {
     "title": "Warum StromPlan?",
@@ -66,6 +70,28 @@
     "subtitle": "Schließen Sie sich Tausenden von Österreichern an, die bereits mit StromPlan sparen",
     "button": "Heute Sparen Beginnen"
   },
+  "uploadForm": {
+    "freeBadge": "100% KOSTENLOS",
+    "title": "Laden Sie Ihre Rechnung Hoch",
+    "subtitle": "Senden Sie uns Ihre Rechnung und erhalten Sie eine kostenlose detaillierte Analyse als PDF!",
+    "billLabel": "Stromrechnung",
+    "dragDrop": "Datei hierher ziehen oder klicken zum Auswählen",
+    "fileTypes": "PDF, JPG, PNG (max. 10 MB)",
+    "selectFile": "Datei Auswählen",
+    "nameLabel": "Ihr Name",
+    "namePlaceholder": "Max Mustermann",
+    "emailLabel": "E-Mail-Adresse",
+    "emailPlaceholder": "max@beispiel.com",
+    "phoneLabel": "Telefon (optional)",
+    "phonePlaceholder": "+43 xxx xxx xxxx",
+    "sendReportLabel": "Senden Sie mir einen detaillierten Bericht als PDF per E-Mail",
+    "submitButton": "Kostenlose Analyse Erhalten",
+    "analyzing": "Analysiere...",
+    "privacyNotice": "Ihre Daten sind geschützt und werden nicht an Dritte weitergegeben. Mehr in der Datenschutzerklärung.",
+    "successTitle": "Vielen Dank! Ihre Rechnung Wurde Erhalten!",
+    "successMessage": "Wir analysieren Ihre Rechnung und senden Ihnen innerhalb von 24 Stunden einen detaillierten Bericht per E-Mail.",
+    "uploadAnother": "Weitere Rechnung Hochladen"
+  },
   "footer": {
     "tagline": "Transparenter Stromvergleich für Österreich",
     "company": "Unternehmen",
@@ -77,5 +103,141 @@
     "faq": "FAQ",
     "help": "Hilfe-Center",
     "rights": "Alle Rechte vorbehalten."
+  },
+  "faq": {
+    "title": "Häufig Gestellte Fragen",
+    "subtitle": "Antworten auf die häufigsten Fragen",
+    "q1": {
+      "question": "Ist der Service wirklich kostenlos?",
+      "answer": "Ja, StromPlan ist völlig kostenlos. Keine versteckten Gebühren."
+    },
+    "q2": {
+      "question": "Wie verdienen Sie Geld?",
+      "answer": "Wir erhalten Provisionen von Anbietern, wenn Kunden wechseln."
+    },
+    "q3": {
+      "question": "Ist es sicher, meine Rechnung hochzuladen?",
+      "answer": "Absolut! Wir verwenden SSL-Verschlüsselung."
+    },
+    "q4": {
+      "question": "Wie lange dauert die Analyse?",
+      "answer": "Sofortige Basisanalyse. PDF-Bericht in 24 Stunden."
+    },
+    "q5": {
+      "question": "Kann ich wirklich 120-140% sparen?",
+      "answer": "Ja! Viele zahlen zu viel für alte Tarife."
+    },
+    "q6": {
+      "question": "Was, wenn ich kürzlich gewechselt habe?",
+      "answer": "Der Markt ändert sich ständig. Eine Prüfung lohnt sich immer."
+    },
+    "q7": {
+      "question": "Helfen Sie beim Wechsel?",
+      "answer": "Ja! Wir unterstützen Sie vollständig."
+    },
+    "q8": {
+      "question": "Für welche Regionen gilt der Service?",
+      "answer": "Ganz Österreich."
+    }
+  },
+  "about": {
+    "title": "Über Uns",
+    "subtitle": "Transparente Energieauswahl",
+    "mission": {
+      "title": "Mission",
+      "content": "Wir helfen österreichischen Verbrauchern Geld zu sparen."
+    },
+    "vision": {
+      "title": "Vision",
+      "content": "Der vertrauenswürdigste Energievergleich in Österreich."
+    },
+    "values": {
+      "title": "Werte",
+      "content": "Transparenz, Ehrlichkeit, Kundenfokus."
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Wir helfen gerne!",
+    "email": {
+      "title": "E-Mail"
+    },
+    "phone": {
+      "title": "Telefon"
+    },
+    "address": {
+      "title": "Adresse",
+      "content": "Wien, Österreich"
+    }
+  },
+  "privacy": {
+    "title": "Datenschutz",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "date": "06. November 2024",
+    "section1": {
+      "title": "1. Datenerfassung",
+      "content": "Wir sammeln nur notwendige Daten."
+    },
+    "section2": {
+      "title": "2. Datennutzung",
+      "content": "Nur für Analyse und Empfehlungen."
+    },
+    "section3": {
+      "title": "3. Datenschutz",
+      "content": "SSL-Verschlüsselung, GDPR-konform."
+    },
+    "section4": {
+      "title": "4. Weitergabe",
+      "content": "Keine Weitergabe an Dritte."
+    },
+    "section5": {
+      "title": "5. Ihre Rechte",
+      "content": "Zugriff, Korrektur, Löschung jederzeit möglich."
+    }
+  },
+  "terms": {
+    "title": "Nutzungsbedingungen",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "date": "06. November 2024",
+    "section1": {
+      "title": "1. Annahme",
+      "content": "Nutzung bedeutet Zustimmung."
+    },
+    "section2": {
+      "title": "2. Service",
+      "content": "Kostenloser Tarifvergleich."
+    },
+    "section3": {
+      "title": "3. Genauigkeit",
+      "content": "Wir streben nach Genauigkeit."
+    },
+    "section4": {
+      "title": "4. Haftung",
+      "content": "Keine Haftung für Drittanbieter."
+    },
+    "section5": {
+      "title": "5. Änderungen",
+      "content": "Änderungen jederzeit möglich."
+    }
+  },
+  "help": {
+    "title": "Hilfe-Center",
+    "subtitle": "StromPlan optimal nutzen",
+    "topic1": {
+      "title": "Rechnung Hochladen",
+      "content": "PDF, JPG, PNG bis 10 MB."
+    },
+    "topic2": {
+      "title": "Analyse Lesen",
+      "content": "Alle Details im PDF-Bericht."
+    },
+    "topic3": {
+      "title": "Wechselprozess",
+      "content": "2-4 Wochen, automatisch."
+    },
+    "topic4": {
+      "title": "Hilfe Benötigt?",
+      "content": "contact@stromplan.at oder +43 1 234 5678"
+    }
   }
 }

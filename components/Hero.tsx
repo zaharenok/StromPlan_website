@@ -5,8 +5,22 @@ import { useTranslations } from 'next-intl';
 export default function Hero() {
   const t = useTranslations('hero');
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const scrollToUpload = () => {
+    const element = document.getElementById('upload-form');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 pt-16">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -22,12 +36,25 @@ export default function Hero() {
             {t('subtitle')}
           </p>
 
+          {/* Free Badge */}
+          <div className="mb-8 inline-block">
+            <div className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full font-bold text-xl shadow-lg animate-pulse">
+              🎉 {t('freeBadge')}
+            </div>
+          </div>
+
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 w-full sm:w-auto">
+            <button
+              onClick={scrollToUpload}
+              className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
+            >
               {t('uploadBill')}
             </button>
-            <button className="px-8 py-4 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-primary-600 dark:text-primary-400 rounded-lg font-semibold text-lg border-2 border-primary-600 dark:border-primary-400 transition-all duration-200 w-full sm:w-auto">
+            <button
+              onClick={() => scrollToSection('how-it-works')}
+              className="px-8 py-4 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-primary-600 dark:text-primary-400 rounded-lg font-semibold text-lg border-2 border-primary-600 dark:border-primary-400 transition-all duration-200 w-full sm:w-auto"
+            >
               {t('howItWorks')}
             </button>
           </div>
@@ -38,19 +65,19 @@ export default function Hero() {
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>100% Transparent</span>
+              <span>{t('transparent')}</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>No Hidden Fees</span>
+              <span>{t('noFees')}</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>Free Analysis</span>
+              <span>{t('freeAnalysis')}</span>
             </div>
           </div>
         </div>

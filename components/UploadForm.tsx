@@ -180,6 +180,11 @@ export default function UploadForm() {
       formDataToSend.append('userAgent', navigator.userAgent);
       formDataToSend.append('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone);
 
+      console.log('📤 Sending webhook request...');
+      console.log('Language:', locale);
+      console.log('Email:', formData.email);
+      console.log('File:', file.name, file.size, 'bytes');
+
       // Send to n8n webhook with timeout
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
@@ -193,12 +198,16 @@ export default function UploadForm() {
 
       clearTimeout(timeoutId);
 
+      console.log('✅ Response received:', response.status, response.statusText);
+
       if (!response.ok) {
+        const errorText = await response.text();
+        console.error('❌ Error response:', errorText);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const result = await response.json();
-      console.log('Webhook response:', result);
+      console.log('✅ Webhook response:', result);
 
       // Save submission data for success screen
       setSubmissionData({

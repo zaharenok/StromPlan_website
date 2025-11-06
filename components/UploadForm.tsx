@@ -25,6 +25,12 @@ export default function UploadForm() {
   const [error, setError] = useState<string | null>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
 
+  // Debug: log when file state changes
+  useEffect(() => {
+    console.log('🔄 File state changed:', file ? file.name : 'No file');
+    console.log('🔄 Button should be:', file && !isSubmitting ? 'enabled' : 'disabled');
+  }, [file, isSubmitting]);
+
   // Check rate limit on mount
   useEffect(() => {
     const lastSubmit = localStorage.getItem(RATE_LIMIT_KEY);
@@ -106,17 +112,22 @@ export default function UploadForm() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('📁 File input changed');
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0];
+      console.log('📁 Selected file:', selectedFile.name, selectedFile.size, 'bytes');
       const validation = validateFile(selectedFile);
 
       if (validation) {
+        console.log('❌ File validation failed:', validation);
         setValidationError(validation);
         return;
       }
 
+      console.log('✅ File validation passed');
       setValidationError(null);
       setFile(selectedFile);
+      console.log('✅ File state updated');
       generatePreview(selectedFile);
     }
   };
@@ -428,7 +439,6 @@ export default function UploadForm() {
                   onChange={handleFileChange}
                   accept=".pdf,.jpg,.jpeg,.png"
                   className="hidden"
-                  required
                 />
 
                 {!file ? (
@@ -595,11 +605,22 @@ export default function UploadForm() {
             <button
               type="submit"
               disabled={!file || isSubmitting}
-              onClick={() => {
-                console.log('🖱️ Submit button clicked');
+              onClick={(e) => {
+                console.log('🖱️ Submit button clicked!');
+                console.log('Event:', e);
                 console.log('Button disabled?', !file || isSubmitting);
                 console.log('Has file?', !!file);
+                console.log('File object:', file);
                 console.log('Is submitting?', isSubmitting);
+                console.log('Form data:', formData);
+
+                // If button is disabled, log why
+                if (!file) {
+                  console.log('❌ BUTTON DISABLED: No file selected');
+                }
+                if (isSubmitting) {
+                  console.log('❌ BUTTON DISABLED: Already submitting');
+                }
               }}
               className="w-full py-4 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 disabled:from-gray-400 disabled:to-gray-500 text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed"
             >

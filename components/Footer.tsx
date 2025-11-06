@@ -1,16 +1,17 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { useState, useTransition } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Footer() {
   const t = useTranslations('footer');
-  const pathname = usePathname();
+  const locale = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-
-  const currentLocale = pathname.split('/')[1] || 'de';
+  const [isPending, startTransition] = useTransition();
 
   const languages = [
     { code: 'en', name: 'English', flag: '🇬🇧' },
@@ -18,13 +19,20 @@ export default function Footer() {
     { code: 'ru', name: 'Русский', flag: '🇷🇺' }
   ];
 
-  const handleLanguageChange = (locale: string) => {
-    const newPathname = pathname.replace(/^\/(en|de|ru)/, `/${locale}`);
-    router.push(newPathname);
-    setIsLanguageOpen(false);
+  const handleLanguageChange = (newLocale: string) => {
+    startTransition(() => {
+      // Get the current path without locale
+      const pathWithoutLocale = pathname.replace(/^\/(en|de|ru)/, '') || '/';
+
+      // Construct new path with new locale
+      const newPath = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
+
+      router.replace(newPath);
+      setIsLanguageOpen(false);
+    });
   };
 
-  const currentLanguage = languages.find(lang => lang.code === currentLocale) || languages[1];
+  const currentLanguage = languages.find(lang => lang.code === locale) || languages[1];
 
   return (
     <footer className="bg-slate-900 text-gray-300">
@@ -68,8 +76,9 @@ export default function Footer() {
                       key={lang.code}
                       onClick={() => handleLanguageChange(lang.code)}
                       className={`w-full flex items-center gap-2 px-4 py-3 hover:bg-slate-700 transition-colors ${
-                        lang.code === currentLocale ? 'bg-slate-700' : ''
+                        lang.code === locale ? 'bg-slate-700' : ''
                       }`}
+                      disabled={isPending}
                     >
                       <span className="text-2xl">{lang.flag}</span>
                       <span>{lang.name}</span>

@@ -6,9 +6,9 @@
     "calculate": "Calculate Now"
   },
   "hero": {
-    "title": "Stop Overpaying for Electricity",
-    "subtitle": "Upload your electricity bill and discover how much you're really paying. Get transparent recommendations for better energy providers.",
-    "uploadBill": "Upload Your Bill",
+    "title": "How Much Are You Paying for Energy?",
+    "subtitle": "Let's check — you'll be shocked! Most Austrians overpay by 20-40% monthly without realizing it. Upload your bill and discover the truth.",
+    "uploadBill": "Check My Bill",
     "howItWorks": "How It Works"
   },
   "benefits": {

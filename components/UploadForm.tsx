@@ -123,6 +123,12 @@ export default function UploadForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    console.log('🚀 Form submit triggered!');
+    console.log('File:', file);
+    console.log('Email:', formData.email);
+    console.log('Name:', formData.name);
+
     setIsSubmitting(true);
     setError(null);
 
@@ -133,6 +139,7 @@ export default function UploadForm() {
       const minutesPassed = timePassed / (1000 * 60);
       if (minutesPassed < RATE_LIMIT_MINUTES) {
         const remainingMinutes = Math.ceil(RATE_LIMIT_MINUTES - minutesPassed);
+        console.log('❌ Rate limit hit');
         setError(t('rateLimitError', { minutes: remainingMinutes }));
         setIsSubmitting(false);
         return;
@@ -140,7 +147,15 @@ export default function UploadForm() {
     }
 
     if (!file) {
+      console.log('❌ No file selected');
       setError(t('noFileError'));
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formData.email) {
+      console.log('❌ No email provided');
+      setError('Email is required');
       setIsSubmitting(false);
       return;
     }
@@ -580,6 +595,12 @@ export default function UploadForm() {
             <button
               type="submit"
               disabled={!file || isSubmitting}
+              onClick={() => {
+                console.log('🖱️ Submit button clicked');
+                console.log('Button disabled?', !file || isSubmitting);
+                console.log('Has file?', !!file);
+                console.log('Is submitting?', isSubmitting);
+              }}
               className="w-full py-4 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 disabled:from-gray-400 disabled:to-gray-500 text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
@@ -594,6 +615,13 @@ export default function UploadForm() {
                 t('submitButton')
               )}
             </button>
+
+            {/* Debug info - показываем почему кнопка отключена */}
+            {!file && (
+              <p className="mt-2 text-sm text-red-600 dark:text-red-400 text-center">
+                ⚠️ Пожалуйста, сначала выберите файл
+              </p>
+            )}
 
             {/* Privacy Notice */}
             <p className="mt-6 text-xs text-center text-gray-500 dark:text-gray-400">

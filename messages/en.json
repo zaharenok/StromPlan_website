@@ -1,0 +1,81 @@
+{
+  "common": {
+    "language": "Language",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "calculate": "Calculate Now"
+  },
+  "hero": {
+    "title": "Stop Overpaying for Electricity",
+    "subtitle": "Upload your electricity bill and discover how much you're really paying. Get transparent recommendations for better energy providers.",
+    "uploadBill": "Upload Your Bill",
+    "howItWorks": "How It Works"
+  },
+  "benefits": {
+    "title": "Why StromPlan?",
+    "subtitle": "Transparent, honest, and designed to save you money",
+    "transparency": {
+      "title": "100% Transparent",
+      "description": "No hidden fees or commissions. We show you exactly what you pay and why."
+    },
+    "savings": {
+      "title": "Real Savings",
+      "description": "Our users save an average of 20-30% on their electricity bills annually."
+    },
+    "comparison": {
+      "title": "Smart Comparison",
+      "description": "We analyze dozens of providers to find the best match for your consumption pattern."
+    },
+    "simple": {
+      "title": "Simple & Fast",
+      "description": "Upload your bill, get results in seconds. No complicated forms or waiting."
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Three simple steps to start saving",
+    "step1": {
+      "title": "Upload Your Bill",
+      "description": "Simply upload a photo or PDF of your current electricity bill"
+    },
+    "step2": {
+      "title": "We Analyze",
+      "description": "Our system analyzes your consumption, rates, and hidden fees"
+    },
+    "step3": {
+      "title": "Get Recommendations",
+      "description": "Receive personalized recommendations with transparent pricing"
+    }
+  },
+  "calculator": {
+    "title": "Calculate Your Real Cost",
+    "subtitle": "See how much you could save right now",
+    "monthlyConsumption": "Monthly Consumption (kWh)",
+    "currentRate": "Current Rate (€/kWh)",
+    "monthlyFee": "Monthly Base Fee (€)",
+    "calculate": "Calculate Savings",
+    "results": {
+      "currentCost": "Your Current Monthly Cost",
+      "potentialSavings": "Potential Monthly Savings",
+      "yearlyTotal": "Annual Savings",
+      "recommendation": "Based on average market rates, you could save up to"
+    }
+  },
+  "cta": {
+    "title": "Ready to Save Money?",
+    "subtitle": "Join thousands of Austrians who are already saving with StromPlan",
+    "button": "Start Saving Today"
+  },
+  "footer": {
+    "tagline": "Transparent electricity comparison for Austria",
+    "company": "Company",
+    "about": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "support": "Support",
+    "faq": "FAQ",
+    "help": "Help Center",
+    "rights": "All rights reserved."
+  }
+}

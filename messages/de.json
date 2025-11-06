@@ -1,0 +1,81 @@
+{
+  "common": {
+    "language": "Sprache",
+    "getStarted": "Jetzt Starten",
+    "learnMore": "Mehr Erfahren",
+    "calculate": "Jetzt Berechnen"
+  },
+  "hero": {
+    "title": "Hören Sie auf, zu viel für Strom zu bezahlen",
+    "subtitle": "Laden Sie Ihre Stromrechnung hoch und entdecken Sie, wie viel Sie wirklich zahlen. Erhalten Sie transparente Empfehlungen für bessere Energieanbieter.",
+    "uploadBill": "Rechnung Hochladen",
+    "howItWorks": "Wie Es Funktioniert"
+  },
+  "benefits": {
+    "title": "Warum StromPlan?",
+    "subtitle": "Transparent, ehrlich und darauf ausgelegt, Ihr Geld zu sparen",
+    "transparency": {
+      "title": "100% Transparent",
+      "description": "Keine versteckten Gebühren oder Provisionen. Wir zeigen Ihnen genau, was Sie zahlen und warum."
+    },
+    "savings": {
+      "title": "Echte Einsparungen",
+      "description": "Unsere Nutzer sparen durchschnittlich 20-30% ihrer jährlichen Stromkosten."
+    },
+    "comparison": {
+      "title": "Intelligenter Vergleich",
+      "description": "Wir analysieren Dutzende von Anbietern, um die beste Lösung für Ihr Verbrauchsmuster zu finden."
+    },
+    "simple": {
+      "title": "Einfach & Schnell",
+      "description": "Laden Sie Ihre Rechnung hoch und erhalten Sie in Sekunden Ergebnisse. Keine komplizierten Formulare."
+    }
+  },
+  "howItWorks": {
+    "title": "So Funktioniert's",
+    "subtitle": "Drei einfache Schritte zum Sparen",
+    "step1": {
+      "title": "Rechnung Hochladen",
+      "description": "Laden Sie einfach ein Foto oder PDF Ihrer aktuellen Stromrechnung hoch"
+    },
+    "step2": {
+      "title": "Wir Analysieren",
+      "description": "Unser System analysiert Ihren Verbrauch, Tarife und versteckte Gebühren"
+    },
+    "step3": {
+      "title": "Empfehlungen Erhalten",
+      "description": "Erhalten Sie personalisierte Empfehlungen mit transparenter Preisgestaltung"
+    }
+  },
+  "calculator": {
+    "title": "Berechnen Sie Ihre Echten Kosten",
+    "subtitle": "Sehen Sie, wie viel Sie jetzt sparen könnten",
+    "monthlyConsumption": "Monatlicher Verbrauch (kWh)",
+    "currentRate": "Aktueller Tarif (€/kWh)",
+    "monthlyFee": "Monatliche Grundgebühr (€)",
+    "calculate": "Ersparnis Berechnen",
+    "results": {
+      "currentCost": "Ihre Aktuellen Monatlichen Kosten",
+      "potentialSavings": "Mögliche Monatliche Ersparnis",
+      "yearlyTotal": "Jährliche Ersparnis",
+      "recommendation": "Basierend auf durchschnittlichen Markttarifen könnten Sie bis zu sparen"
+    }
+  },
+  "cta": {
+    "title": "Bereit, Geld zu Sparen?",
+    "subtitle": "Schließen Sie sich Tausenden von Österreichern an, die bereits mit StromPlan sparen",
+    "button": "Heute Sparen Beginnen"
+  },
+  "footer": {
+    "tagline": "Transparenter Stromvergleich für Österreich",
+    "company": "Unternehmen",
+    "about": "Über Uns",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "support": "Support",
+    "faq": "FAQ",
+    "help": "Hilfe-Center",
+    "rights": "Alle Rechte vorbehalten."
+  }
+}

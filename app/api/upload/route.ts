@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Forward the request to n8n webhook
-    const webhookUrl = 'https://n8n.aaagency.at/webhook-test/25ea5e3f-346d-44ab-8e24-e6e114c40eae';
+    const webhookUrl = 'https://n8n.aaagency.at/webhook/25ea5e3f-346d-44ab-8e24-e6e114c40eae';
 
     console.log('🔄 Forwarding to n8n webhook...');
 

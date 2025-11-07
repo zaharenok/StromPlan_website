@@ -206,16 +206,16 @@ export default function UploadForm() {
       formDataToSend.append('userAgent', navigator.userAgent);
       formDataToSend.append('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone);
 
-      console.log('📤 Sending webhook request...');
+      console.log('📤 Sending to API route...');
       console.log('Language:', locale);
       console.log('Email:', formData.email);
       console.log('File:', file.name, file.size, 'bytes');
 
-      // Send to n8n webhook with timeout
+      // Send to our API route (which will forward to n8n webhook)
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
-      const response = await fetch('https://n8n.aaagency.at/webhook-test/25ea5e3f-346d-44ab-8e24-e6e114c40eae', {
+      const response = await fetch('/api/upload', {
         method: 'POST',
         body: formDataToSend,
         signal: controller.signal,
@@ -227,13 +227,13 @@ export default function UploadForm() {
       console.log('✅ Response received:', response.status, response.statusText);
 
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('❌ Error response:', errorText);
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        console.error('❌ Error response:', errorData);
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
       }
 
       const result = await response.json();
-      console.log('✅ Webhook response:', result);
+      console.log('✅ API response:', result);
 
       // Save submission data for success screen
       setSubmissionData({

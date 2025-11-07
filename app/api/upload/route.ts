@@ -65,10 +65,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-
-// Enable this route to handle large files (default is 4MB)
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};

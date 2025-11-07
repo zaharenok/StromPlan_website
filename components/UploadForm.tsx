@@ -2,6 +2,7 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import { useState, useEffect } from 'react';
+import LoadingOverlay from './LoadingOverlay';
 
 // Rate limiting
 const RATE_LIMIT_KEY = 'stromplan_last_submit';
@@ -696,6 +697,9 @@ export default function UploadForm() {
           </form>
         </div>
       </div>
+
+      {/* Loading Overlay */}
+      <LoadingOverlay isVisible={isSubmitting} />
     </section>
   );
 }

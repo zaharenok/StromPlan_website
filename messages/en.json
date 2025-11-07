@@ -125,6 +125,14 @@
     "accept": "Accept all",
     "decline": "Essential only"
   },
+  "loadingSteps": {
+    "uploading": "Uploading file",
+    "sending": "Sending data",
+    "analyzing": "Analyzing bill",
+    "preparing": "Preparing report",
+    "progress": "Progress",
+    "pleaseWait": "Please wait. This may take a few seconds."
+  },
   "footer": {
     "tagline": "Transparent electricity comparison for Austria",
     "company": "Company",

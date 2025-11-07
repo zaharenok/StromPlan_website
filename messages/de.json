@@ -125,6 +125,14 @@
     "accept": "Alle akzeptieren",
     "decline": "Nur notwendige"
   },
+  "loadingSteps": {
+    "uploading": "Datei wird hochgeladen",
+    "sending": "Daten werden gesendet",
+    "analyzing": "Rechnung wird analysiert",
+    "preparing": "Bericht wird vorbereitet",
+    "progress": "Fortschritt",
+    "pleaseWait": "Bitte warten Sie. Dies kann einige Sekunden dauern."
+  },
   "footer": {
     "tagline": "Transparenter Stromvergleich für Österreich",
     "company": "Unternehmen",

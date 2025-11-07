@@ -2,7 +2,8 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {locales} from '@/i18n/request';
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
+import CookieConsent from '@/components/CookieConsent';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
 
@@ -31,6 +32,7 @@ export default async function LocaleLayout({
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
           {children}
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>

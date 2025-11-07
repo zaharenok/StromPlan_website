@@ -85,6 +85,12 @@
     "phoneLabel": "Phone (optional)",
     "phonePlaceholder": "+43 xxx xxx xxxx",
     "sendReportLabel": "Send me a detailed PDF report via email",
+    "gdprConsentLabel": "I agree to the processing of my personal data in accordance with the",
+    "privacyPolicy": "Privacy Policy",
+    "and": "and",
+    "termsOfService": "Terms of Service",
+    "gdprRequired": "Consent to data processing is required to submit the form",
+    "gdprConsentRequired": "Please consent to the processing of personal data",
     "submitButton": "Get Free Analysis",
     "analyzing": "Analyzing...",
     "privacyNotice": "Your data is protected and not shared with third parties. See Privacy Policy for details.",
@@ -111,6 +117,13 @@
     "nextStep2": "You'll receive a detailed PDF report via email within 24 hours",
     "nextStep3": "If you have questions, our team is always ready to help",
     "backToHome": "Back to Home"
+  },
+  "cookieConsent": {
+    "title": "This site uses cookies",
+    "description": "We use cookies to improve your experience, analyze traffic, and personalize content. By continuing to use the site, you agree to the use of cookies.",
+    "learnMore": "Learn more",
+    "accept": "Accept all",
+    "decline": "Essential only"
   },
   "footer": {
     "tagline": "Transparent electricity comparison for Austria",

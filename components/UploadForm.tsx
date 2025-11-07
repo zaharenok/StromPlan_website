@@ -17,7 +17,8 @@ export default function UploadForm() {
     name: '',
     email: '',
     phone: '',
-    sendReport: true
+    sendReport: true,
+    gdprConsent: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -167,6 +168,13 @@ export default function UploadForm() {
     if (!formData.email) {
       console.log('❌ No email provided');
       setError('Email is required');
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formData.gdprConsent) {
+      console.log('❌ GDPR consent not given');
+      setError(t('gdprConsentRequired'));
       setIsSubmitting(false);
       return;
     }
@@ -377,7 +385,7 @@ export default function UploadForm() {
                   setSubmitted(false);
                   setFile(null);
                   setFilePreview(null);
-                  setFormData({ name: '', email: '', phone: '', sendReport: true });
+                  setFormData({ name: '', email: '', phone: '', sendReport: true, gdprConsent: false });
                 }}
                 className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
               >
@@ -575,7 +583,7 @@ export default function UploadForm() {
             </div>
 
             {/* Checkbox for PDF report */}
-            <div className="mb-8">
+            <div className="mb-6">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -587,6 +595,43 @@ export default function UploadForm() {
                   {t('sendReportLabel')}
                 </span>
               </label>
+            </div>
+
+            {/* GDPR Consent Checkbox */}
+            <div className="mb-8">
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  checked={formData.gdprConsent}
+                  onChange={(e) => setFormData({...formData, gdprConsent: e.target.checked})}
+                  className="mt-1 w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                  required
+                />
+                <span className="text-sm text-gray-700 dark:text-gray-300">
+                  {t('gdprConsentLabel')}{' '}
+                  <a
+                    href={`/${locale}/privacy`}
+                    target="_blank"
+                    className="text-primary-600 dark:text-primary-400 hover:underline font-semibold"
+                  >
+                    {t('privacyPolicy')}
+                  </a>
+                  {' '}{t('and')}{' '}
+                  <a
+                    href={`/${locale}/terms`}
+                    target="_blank"
+                    className="text-primary-600 dark:text-primary-400 hover:underline font-semibold"
+                  >
+                    {t('termsOfService')}
+                  </a>
+                  . *
+                </span>
+              </label>
+              {!formData.gdprConsent && (
+                <p className="mt-2 text-xs text-gray-500 dark:text-gray-400 ml-8">
+                  {t('gdprRequired')}
+                </p>
+              )}
             </div>
 
             {/* Error Message */}

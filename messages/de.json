@@ -85,6 +85,12 @@
     "phoneLabel": "Telefon (optional)",
     "phonePlaceholder": "+43 xxx xxx xxxx",
     "sendReportLabel": "Senden Sie mir einen detaillierten Bericht als PDF per E-Mail",
+    "gdprConsentLabel": "Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der",
+    "privacyPolicy": "Datenschutzerklärung",
+    "and": "und",
+    "termsOfService": "Nutzungsbedingungen",
+    "gdprRequired": "Die Zustimmung zur Datenverarbeitung ist erforderlich, um das Formular abzusenden",
+    "gdprConsentRequired": "Bitte stimmen Sie der Verarbeitung personenbezogener Daten zu",
     "submitButton": "Kostenlose Analyse Erhalten",
     "analyzing": "Analysiere...",
     "privacyNotice": "Ihre Daten sind geschützt und werden nicht an Dritte weitergegeben. Mehr in der Datenschutzerklärung.",
@@ -111,6 +117,13 @@
     "nextStep2": "Sie erhalten einen detaillierten PDF-Bericht per E-Mail innerhalb von 24 Stunden",
     "nextStep3": "Bei Fragen steht unser Team jederzeit zur Verfügung",
     "backToHome": "Zur Startseite"
+  },
+  "cookieConsent": {
+    "title": "Diese Website verwendet Cookies",
+    "description": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern, den Traffic zu analysieren und Inhalte zu personalisieren. Durch die weitere Nutzung der Website stimmen Sie der Verwendung von Cookies zu.",
+    "learnMore": "Mehr erfahren",
+    "accept": "Alle akzeptieren",
+    "decline": "Nur notwendige"
   },
   "footer": {
     "tagline": "Transparenter Stromvergleich für Österreich",

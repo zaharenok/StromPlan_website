@@ -85,6 +85,8 @@
     "phoneLabel": "Telefon (optional)",
     "phonePlaceholder": "+43 xxx xxx xxxx",
     "sendReportLabel": "Senden Sie mir einen detaillierten Bericht als PDF per E-Mail",
+    "requestCallLabel": "Möchten Sie, dass wir Sie für eine Beratung anrufen?",
+    "requestCallHint": "Vergessen Sie nicht, Ihre Telefonnummer oben anzugeben",
     "gdprConsentLabel": "Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der",
     "privacyPolicy": "Datenschutzerklärung",
     "and": "und",

@@ -19,7 +19,8 @@ export default function UploadForm() {
     email: '',
     phone: '',
     sendReport: true,
-    gdprConsent: false
+    gdprConsent: false,
+    requestCall: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -200,6 +201,7 @@ export default function UploadForm() {
       formDataToSend.append('email', formData.email);
       formDataToSend.append('phone', formData.phone);
       formDataToSend.append('sendReport', formData.sendReport.toString());
+      formDataToSend.append('requestCall', formData.requestCall.toString());
 
       // Add language (IMPORTANT!)
       formDataToSend.append('language', locale);
@@ -386,7 +388,7 @@ export default function UploadForm() {
                   setSubmitted(false);
                   setFile(null);
                   setFilePreview(null);
-                  setFormData({ name: '', email: '', phone: '', sendReport: true, gdprConsent: false });
+                  setFormData({ name: '', email: '', phone: '', sendReport: true, gdprConsent: false, requestCall: false });
                 }}
                 className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
               >
@@ -584,7 +586,7 @@ export default function UploadForm() {
             </div>
 
             {/* Checkbox for PDF report */}
-            <div className="mb-6">
+            <div className="mb-4">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -596,6 +598,26 @@ export default function UploadForm() {
                   {t('sendReportLabel')}
                 </span>
               </label>
+            </div>
+
+            {/* Checkbox for call request */}
+            <div className="mb-6">
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={formData.requestCall}
+                  onChange={(e) => setFormData({...formData, requestCall: e.target.checked})}
+                  className="mt-1 w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                />
+                <span className="text-sm text-gray-700 dark:text-gray-300">
+                  📞 {t('requestCallLabel')}
+                </span>
+              </label>
+              {formData.requestCall && !formData.phone && (
+                <p className="mt-2 text-xs text-amber-600 dark:text-amber-400 ml-8">
+                  💡 {t('requestCallHint')}
+                </p>
+              )}
             </div>
 
             {/* GDPR Consent Checkbox */}

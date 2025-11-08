@@ -85,6 +85,8 @@
     "phoneLabel": "Телефон (опционально)",
     "phonePlaceholder": "+43 xxx xxx xxxx",
     "sendReportLabel": "Отправить мне детальный отчет в PDF на email",
+    "requestCallLabel": "Хотите, чтобы мы вам позвонили и проконсультировали?",
+    "requestCallHint": "Не забудьте указать номер телефона выше",
     "gdprConsentLabel": "Я согласен на обработку моих персональных данных в соответствии с",
     "privacyPolicy": "Политикой Конфиденциальности",
     "and": "и",

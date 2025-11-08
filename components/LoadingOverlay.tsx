@@ -21,15 +21,15 @@ export default function LoadingOverlay({ isVisible }: LoadingOverlayProps) {
       return;
     }
 
-    // Simulate progress through steps
+    // Simulate progress through steps - 3 seconds per step (12 seconds total)
     const steps: LoadingStep[] = ['uploading', 'sending', 'analyzing', 'preparing'];
     let stepIndex = 0;
     let currentProgress = 0;
 
     const progressInterval = setInterval(() => {
-      currentProgress += 2;
+      currentProgress += 0.8; // ~0.8% every 100ms = 8% per second = 3 seconds per 25%
 
-      // Update step based on progress
+      // Update step based on progress (each step takes 3 seconds)
       if (currentProgress >= 25 && stepIndex === 0) {
         stepIndex = 1;
         setCurrentStep('sending');
@@ -46,7 +46,7 @@ export default function LoadingOverlay({ isVisible }: LoadingOverlayProps) {
       if (currentProgress >= 95) {
         clearInterval(progressInterval);
       }
-    }, 100);
+    }, 100); // Update every 100ms
 
     return () => clearInterval(progressInterval);
   }, [isVisible]);

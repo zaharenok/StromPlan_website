@@ -139,6 +139,22 @@
     "progress": "Progress",
     "pleaseWait": "Please wait. This may take a few seconds."
   },
+  "livePrices": {
+    "title": "Live Price Comparison",
+    "subtitle": "Real tariffs from Austrian energy providers (updated daily)",
+    "loading": "Loading current prices...",
+    "overpaymentAlert": "Difference between most expensive and cheapest",
+    "difference": "PRICE DIFFERENCE",
+    "recommended": "BEST OFFER",
+    "mostExpensive": "MOST EXPENSIVE",
+    "perMonth": "per month",
+    "monthlyTotal": "Monthly total",
+    "save": "Save",
+    "month": "mo",
+    "ctaTitle": "You can save even more!",
+    "ctaSubtitle": "Upload your bill and find out exactly how much you're overpaying",
+    "ctaButton": "Check My Bill Now"
+  },
   "footer": {
     "tagline": "Transparent electricity comparison for Austria",
     "company": "Company",

@@ -139,6 +139,22 @@
     "progress": "Fortschritt",
     "pleaseWait": "Bitte warten Sie. Dies kann einige Sekunden dauern."
   },
+  "livePrices": {
+    "title": "Live-Preisvergleich",
+    "subtitle": "Echte Tarife österreichischer Energieanbieter (täglich aktualisiert)",
+    "loading": "Aktuelle Preise werden geladen...",
+    "overpaymentAlert": "Differenz zwischen teuerstem und günstigstem",
+    "difference": "PREISDIFFERENZ",
+    "recommended": "BESTES ANGEBOT",
+    "mostExpensive": "AM TEUERSTEN",
+    "perMonth": "pro Monat",
+    "monthlyTotal": "Monatlich gesamt",
+    "save": "Sparen Sie",
+    "month": "Mon.",
+    "ctaTitle": "Sie können noch mehr sparen!",
+    "ctaSubtitle": "Laden Sie Ihre Rechnung hoch und erfahren Sie genau, wie viel Sie zu viel zahlen",
+    "ctaButton": "Jetzt Meine Rechnung Prüfen"
+  },
   "footer": {
     "tagline": "Transparenter Stromvergleich für Österreich",
     "company": "Unternehmen",

@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Benefits from '@/components/Benefits';
 import HowItWorks from '@/components/HowItWorks';
+import LivePriceComparison from '@/components/LivePriceComparison';
 import UploadForm from '@/components/UploadForm';
 import Calculator from '@/components/Calculator';
 import CTA from '@/components/CTA';
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Benefits />
       <HowItWorks />
+      <LivePriceComparison />
       <UploadForm />
       <Calculator />
       <CTA />

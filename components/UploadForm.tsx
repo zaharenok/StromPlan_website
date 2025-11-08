@@ -708,7 +708,7 @@ export default function UploadForm() {
             {/* Debug info - показываем почему кнопка отключена */}
             {!file && (
               <p className="mt-2 text-sm text-red-600 dark:text-red-400 text-center">
-                ⚠️ Пожалуйста, сначала выберите файл
+                ⚠️ {t('pleaseSelectFile')}
               </p>
             )}
 

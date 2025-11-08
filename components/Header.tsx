@@ -1,10 +1,11 @@
 'use client';
 
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 
 export default function Header() {
+  const t = useTranslations('header');
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -38,7 +39,7 @@ export default function Header() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
             <span className="text-xl font-bold text-gray-900 dark:text-white">StromPlan.at</span>
-            <span className="ml-2 px-2 py-1 text-xs font-bold bg-green-500 text-white rounded">100% БЕСПЛАТНО</span>
+            <span className="ml-2 px-2 py-1 text-xs font-bold bg-green-500 text-white rounded">{t('freeBadge')}</span>
           </div>
 
           {/* Language Selector */}

@@ -5,6 +5,9 @@
     "learnMore": "Mehr Erfahren",
     "calculate": "Jetzt Berechnen"
   },
+  "header": {
+    "freeBadge": "100% KOSTENLOS"
+  },
   "hero": {
     "title": "Wie Viel Zahlen Sie für Energie?",
     "subtitle": "Lassen Sie uns prüfen — Sie werden schockiert sein! Die meisten Österreicher zahlen 120-140% zu viel pro Monat, ohne es zu wissen. Laden Sie Ihre Rechnung hoch und erfahren Sie die Wahrheit.",
@@ -87,6 +90,7 @@
     "sendReportLabel": "Senden Sie mir einen detaillierten Bericht als PDF per E-Mail",
     "requestCallLabel": "Möchten Sie, dass wir Sie für eine Beratung anrufen?",
     "requestCallHint": "Vergessen Sie nicht, Ihre Telefonnummer oben anzugeben",
+    "pleaseSelectFile": "Bitte wählen Sie zuerst eine Datei aus",
     "gdprConsentLabel": "Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der",
     "privacyPolicy": "Datenschutzerklärung",
     "and": "und",

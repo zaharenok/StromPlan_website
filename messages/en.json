@@ -5,6 +5,9 @@
     "learnMore": "Learn More",
     "calculate": "Calculate Now"
   },
+  "header": {
+    "freeBadge": "100% FREE"
+  },
   "hero": {
     "title": "How Much Are You Paying for Energy?",
     "subtitle": "Let's check — you'll be shocked! Most Austrians overpay by 120-140% monthly without realizing it. Upload your bill and discover the truth.",
@@ -87,6 +90,7 @@
     "sendReportLabel": "Send me a detailed PDF report via email",
     "requestCallLabel": "Would you like us to call you for a consultation?",
     "requestCallHint": "Don't forget to add your phone number above",
+    "pleaseSelectFile": "Please select a file first",
     "gdprConsentLabel": "I agree to the processing of my personal data in accordance with the",
     "privacyPolicy": "Privacy Policy",
     "and": "and",

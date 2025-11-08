@@ -21,12 +21,12 @@ export default function LoadingOverlay({ isVisible }: LoadingOverlayProps) {
       return;
     }
 
-    // Each step takes EXACTLY 3 seconds - more reliable with explicit timeouts
+    // Total animation: 10 seconds (2.5 seconds per step)
     const steps: { step: LoadingStep; delay: number }[] = [
       { step: 'uploading', delay: 0 },
-      { step: 'sending', delay: 3000 },
-      { step: 'analyzing', delay: 6000 },
-      { step: 'preparing', delay: 9000 },
+      { step: 'sending', delay: 2500 },
+      { step: 'analyzing', delay: 5000 },
+      { step: 'preparing', delay: 7500 },
     ];
 
     // Set up step changes
@@ -34,10 +34,10 @@ export default function LoadingOverlay({ isVisible }: LoadingOverlayProps) {
       setTimeout(() => setCurrentStep(step), delay)
     );
 
-    // Smooth progress bar
+    // Smooth progress bar - reaches 95% in exactly 10 seconds
     let currentProgress = 0;
     const progressInterval = setInterval(() => {
-      currentProgress += 0.7; // Slightly slower: ~0.7% per 100ms = 7% per second = ~3.5s per 25%
+      currentProgress += 0.95; // 0.95% per 100ms = 9.5% per second = 10 seconds to reach 95%
       setProgress(Math.min(currentProgress, 95));
 
       if (currentProgress >= 95) {

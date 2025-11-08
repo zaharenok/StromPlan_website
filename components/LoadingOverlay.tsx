@@ -21,34 +21,34 @@ export default function LoadingOverlay({ isVisible }: LoadingOverlayProps) {
       return;
     }
 
-    // Simulate progress through steps - 3 seconds per step (12 seconds total)
-    const steps: LoadingStep[] = ['uploading', 'sending', 'analyzing', 'preparing'];
-    let stepIndex = 0;
+    // Each step takes EXACTLY 3 seconds - more reliable with explicit timeouts
+    const steps: { step: LoadingStep; delay: number }[] = [
+      { step: 'uploading', delay: 0 },
+      { step: 'sending', delay: 3000 },
+      { step: 'analyzing', delay: 6000 },
+      { step: 'preparing', delay: 9000 },
+    ];
+
+    // Set up step changes
+    const stepTimeouts = steps.map(({ step, delay }) =>
+      setTimeout(() => setCurrentStep(step), delay)
+    );
+
+    // Smooth progress bar
     let currentProgress = 0;
-
     const progressInterval = setInterval(() => {
-      currentProgress += 0.8; // ~0.8% every 100ms = 8% per second = 3 seconds per 25%
-
-      // Update step based on progress (each step takes 3 seconds)
-      if (currentProgress >= 25 && stepIndex === 0) {
-        stepIndex = 1;
-        setCurrentStep('sending');
-      } else if (currentProgress >= 50 && stepIndex === 1) {
-        stepIndex = 2;
-        setCurrentStep('analyzing');
-      } else if (currentProgress >= 75 && stepIndex === 2) {
-        stepIndex = 3;
-        setCurrentStep('preparing');
-      }
-
-      setProgress(Math.min(currentProgress, 95)); // Cap at 95% until actual completion
+      currentProgress += 0.7; // Slightly slower: ~0.7% per 100ms = 7% per second = ~3.5s per 25%
+      setProgress(Math.min(currentProgress, 95));
 
       if (currentProgress >= 95) {
         clearInterval(progressInterval);
       }
-    }, 100); // Update every 100ms
+    }, 100);
 
-    return () => clearInterval(progressInterval);
+    return () => {
+      stepTimeouts.forEach(timeout => clearTimeout(timeout));
+      clearInterval(progressInterval);
+    };
   }, [isVisible]);
 
   if (!isVisible) return null;

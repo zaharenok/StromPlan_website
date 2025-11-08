@@ -690,24 +690,7 @@ export default function UploadForm() {
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={!file || isSubmitting}
-              onClick={(e) => {
-                console.log('🖱️ Submit button clicked!');
-                console.log('Event:', e);
-                console.log('Button disabled?', !file || isSubmitting);
-                console.log('Has file?', !!file);
-                console.log('File object:', file);
-                console.log('Is submitting?', isSubmitting);
-                console.log('Form data:', formData);
-
-                // If button is disabled, log why
-                if (!file) {
-                  console.log('❌ BUTTON DISABLED: No file selected');
-                }
-                if (isSubmitting) {
-                  console.log('❌ BUTTON DISABLED: Already submitting');
-                }
-              }}
+              disabled={!file || isSubmitting || !formData.gdprConsent}
               className="w-full py-4 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 disabled:from-gray-400 disabled:to-gray-500 text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
@@ -727,6 +710,11 @@ export default function UploadForm() {
             {!file && (
               <p className="mt-2 text-sm text-red-600 dark:text-red-400 text-center">
                 ⚠️ {t('pleaseSelectFile')}
+              </p>
+            )}
+            {file && !formData.gdprConsent && (
+              <p className="mt-2 text-sm text-red-600 dark:text-red-400 text-center">
+                ⚠️ {t('gdprRequired')}
               </p>
             )}
 

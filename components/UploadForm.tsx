@@ -398,6 +398,24 @@ export default function UploadForm() {
               </ul>
             </div>
 
+            {/* Important Warnings */}
+            <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 rounded-lg p-6 mb-8">
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">⚠️</span>
+                  <p className="text-amber-800 dark:text-amber-200 font-medium">
+                    {t('spamWarning')}
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🔄</span>
+                  <p className="text-amber-800 dark:text-amber-200 font-medium">
+                    {t('resendInstruction')}
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Actions */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button

@@ -119,10 +119,12 @@
     "reportLanguage": "Report language",
     "submittedAt": "Submitted at",
     "whatHappensNext": "What Happens Next?",
-    "callbackStep": "We will contact you within 1 minute for consultation",
+    "callbackStep": "We will contact you within 10 minutes for consultation",
     "nextStep1": "We analyze your bill with AI",
-    "nextStep2": "You'll receive a detailed PDF report via email within 24 hours",
+    "nextStep2": "You'll receive a detailed PDF report via email within 5 minutes",
     "nextStep3": "If you have questions, our team is always ready to help",
+    "spamWarning": "Don't forget to check your 'Spam' folder if the email doesn't arrive",
+    "resendInstruction": "If the email hasn't arrived after 10 minutes, try submitting the form again",
     "backToHome": "Back to Home"
   },
   "cookieConsent": {

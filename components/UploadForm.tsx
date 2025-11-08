@@ -254,7 +254,8 @@ export default function UploadForm() {
         fileName: file.name,
         fileSize: (file.size / 1024 / 1024).toFixed(2),
         language: locale,
-        timestamp: new Date().toLocaleString(locale)
+        timestamp: new Date().toLocaleString(locale),
+        requestCall: formData.requestCall
       });
 
       // Set rate limit
@@ -263,12 +264,12 @@ export default function UploadForm() {
       // Signal that the request is complete (animation will jump to 100%)
       setRequestComplete(true);
 
-      // Wait a bit to let the loading animation complete nicely
+      // Wait longer to let the loading animation complete nicely (especially the "preparing" step)
       setTimeout(() => {
         setIsSubmitting(false);
         setSubmitted(true);
         setRequestComplete(false); // Reset for next submission
-      }, 2000); // 2 second delay to show completion
+      }, 8000); // 8 second delay to show completion and preparing step
 
     } catch (err: any) {
       console.error('Error submitting form:', err);
@@ -376,6 +377,12 @@ export default function UploadForm() {
                 {t('whatHappensNext')}
               </h4>
               <ul className="space-y-2 text-blue-800 dark:text-blue-200">
+                {submissionData.requestCall && (
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 mt-1">📞</span>
+                    <span className="font-semibold">{t('callbackStep')}</span>
+                  </li>
+                )}
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 mt-1">•</span>
                   <span>{t('nextStep1')}</span>

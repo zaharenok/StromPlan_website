@@ -23,6 +23,7 @@ export default function UploadForm() {
     requestCall: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [requestComplete, setRequestComplete] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submissionData, setSubmissionData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -144,6 +145,7 @@ export default function UploadForm() {
     console.log('Name:', formData.name);
 
     setIsSubmitting(true);
+    setRequestComplete(false); // Reset completion state
     setError(null);
 
     // Check rate limit
@@ -258,8 +260,15 @@ export default function UploadForm() {
       // Set rate limit
       localStorage.setItem(RATE_LIMIT_KEY, Date.now().toString());
 
-      setIsSubmitting(false);
-      setSubmitted(true);
+      // Signal that the request is complete (animation will jump to 100%)
+      setRequestComplete(true);
+
+      // Wait a bit to let the loading animation complete nicely
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmitted(true);
+        setRequestComplete(false); // Reset for next submission
+      }, 1000); // 1 second delay to show completion
 
     } catch (err: any) {
       console.error('Error submitting form:', err);
@@ -273,6 +282,7 @@ export default function UploadForm() {
       }
 
       setIsSubmitting(false);
+      setRequestComplete(false); // Reset on error
     }
   };
 
@@ -389,6 +399,7 @@ export default function UploadForm() {
                   setFile(null);
                   setFilePreview(null);
                   setFormData({ name: '', email: '', phone: '', sendReport: true, gdprConsent: false, requestCall: false });
+                  setRequestComplete(false);
                 }}
                 className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
               >
@@ -721,7 +732,7 @@ export default function UploadForm() {
       </div>
 
       {/* Loading Overlay */}
-      <LoadingOverlay isVisible={isSubmitting} />
+      <LoadingOverlay isVisible={isSubmitting} isComplete={requestComplete} />
     </section>
   );
 }

@@ -5,11 +5,12 @@ import { useEffect, useState } from 'react';
 
 interface LoadingOverlayProps {
   isVisible: boolean;
+  isComplete?: boolean; // New prop to signal completion
 }
 
 type LoadingStep = 'uploading' | 'sending' | 'analyzing' | 'preparing';
 
-export default function LoadingOverlay({ isVisible }: LoadingOverlayProps) {
+export default function LoadingOverlay({ isVisible, isComplete = false }: LoadingOverlayProps) {
   const t = useTranslations('loadingSteps');
   const [currentStep, setCurrentStep] = useState<LoadingStep>('uploading');
   const [progress, setProgress] = useState(0);
@@ -18,6 +19,13 @@ export default function LoadingOverlay({ isVisible }: LoadingOverlayProps) {
     if (!isVisible) {
       setCurrentStep('uploading');
       setProgress(0);
+      return;
+    }
+
+    // If request completed, jump to 100%
+    if (isComplete) {
+      setCurrentStep('preparing');
+      setProgress(100);
       return;
     }
 
@@ -49,7 +57,7 @@ export default function LoadingOverlay({ isVisible }: LoadingOverlayProps) {
       stepTimeouts.forEach(timeout => clearTimeout(timeout));
       clearInterval(progressInterval);
     };
-  }, [isVisible]);
+  }, [isVisible, isComplete]);
 
   if (!isVisible) return null;
 
@@ -84,7 +92,7 @@ export default function LoadingOverlay({ isVisible }: LoadingOverlayProps) {
               {t('progress')}
             </span>
             <span className="text-sm font-bold text-primary-600 dark:text-primary-400">
-              {progress}%
+              {Math.round(progress)}%
             </span>
           </div>
           <div className="h-3 bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden">

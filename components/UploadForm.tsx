@@ -268,7 +268,7 @@ export default function UploadForm() {
         setIsSubmitting(false);
         setSubmitted(true);
         setRequestComplete(false); // Reset for next submission
-      }, 1000); // 1 second delay to show completion
+      }, 2000); // 2 second delay to show completion
 
     } catch (err: any) {
       console.error('Error submitting form:', err);

@@ -636,24 +636,42 @@ export default function UploadForm() {
               </label>
             </div>
 
-            {/* Checkbox for call request */}
-            <div className="mb-6">
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={formData.requestCall}
-                  onChange={(e) => setFormData({...formData, requestCall: e.target.checked})}
-                  className="mt-1 w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
-                />
-                <span className="text-sm text-gray-700 dark:text-gray-300">
-                  📞 {t('requestCallLabel')}
-                </span>
-              </label>
-              {formData.requestCall && !formData.phone && (
-                <p className="mt-2 text-xs text-amber-600 dark:text-amber-400 ml-8">
-                  💡 {t('requestCallHint')}
-                </p>
-              )}
+            {/* Checkbox for call request - HIGHLIGHTED */}
+            <div className="mb-6 relative">
+              <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-green-900/20 dark:via-emerald-900/20 dark:to-teal-900/20 border-2 border-green-400 dark:border-green-600 rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse-slow">
+                {/* NEW Badge */}
+                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-bounce-slow">
+                  🎁 {t('newFeature')}
+                </div>
+
+                <label className="flex items-start gap-4 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    checked={formData.requestCall}
+                    onChange={(e) => setFormData({...formData, requestCall: e.target.checked})}
+                    className="mt-1 w-6 h-6 text-green-600 border-green-300 rounded focus:ring-green-500 focus:ring-2 cursor-pointer"
+                  />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-3xl">📞</span>
+                      <span className="text-base font-bold text-green-900 dark:text-green-100 group-hover:text-green-700 dark:group-hover:text-green-200 transition-colors">
+                        {t('requestCallLabel')}
+                      </span>
+                    </div>
+                    <p className="text-sm text-green-700 dark:text-green-300 ml-11">
+                      {t('requestCallDescription')}
+                    </p>
+                  </div>
+                </label>
+
+                {formData.requestCall && !formData.phone && (
+                  <div className="mt-3 ml-11 p-3 bg-amber-100 dark:bg-amber-900/30 border-l-4 border-amber-500 rounded">
+                    <p className="text-sm text-amber-800 dark:text-amber-200 font-medium flex items-center gap-2">
+                      💡 {t('requestCallHint')}
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* GDPR Consent Checkbox */}

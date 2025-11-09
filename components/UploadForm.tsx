@@ -264,12 +264,12 @@ export default function UploadForm() {
       // Signal that the request is complete (animation will jump to 100%)
       setRequestComplete(true);
 
-      // Wait to let the loading animation complete nicely
+      // Wait 5 seconds after animation completes to show the success screen
       setTimeout(() => {
         setIsSubmitting(false);
         setSubmitted(true);
         setRequestComplete(false); // Reset for next submission
-      }, 3000); // 3 second delay to show completion
+      }, 5000); // 5 second delay to show completion state
 
     } catch (err: any) {
       console.error('Error submitting form:', err);

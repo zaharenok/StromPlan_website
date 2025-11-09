@@ -118,8 +118,9 @@ export default function LoadingOverlay({ isVisible, isComplete = false }: Loadin
         {/* Steps List */}
         <div className="space-y-3">
           {steps.map((step, index) => {
-            const isCompleted = steps.findIndex(s => s.id === currentStep) > index;
-            const isCurrent = step.id === currentStep;
+            // If progress is 100%, all steps are completed
+            const isCompleted = progress === 100 || steps.findIndex(s => s.id === currentStep) > index;
+            const isCurrent = progress < 100 && step.id === currentStep;
 
             return (
               <div
